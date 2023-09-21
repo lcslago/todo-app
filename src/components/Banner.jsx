@@ -1,9 +1,11 @@
 import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
+import { ThemeContext } from "styled-components";
 
 const Header = styled.header`
     position: absolute;
-    background-image: url(./../../images/bg-mobile-light.jpg);
+    background-image: ${(props) => props.theme.background.mobileBG};
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
@@ -23,11 +25,16 @@ const BannerTitle = styled.div`
     }
 `
 
-const Banner = () => <Header>
-    <BannerTitle>
-        <span><b>todo</b></span>
-        <div className="banner__title-theme"></div>
-    </BannerTitle>
-</Header>
+const Banner = () => {
+    const theme = useContext(ThemeContext);
 
+    return (
+        <Header theme={theme}>
+            <BannerTitle>
+                <span><b>todo</b></span>
+                <div></div>
+            </BannerTitle>
+        </Header>
+    );
+};
 export default Banner;
