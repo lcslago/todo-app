@@ -22,8 +22,13 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'JosefinSansRegular';
     }
 
-    b{
+    b {
         font-family: 'JosefinSansBold';
+    }
+
+    body {
+        background-color: ${props => props.theme.colors.primary};
+        transition: background 0.2s ease-in;
     }
 `
 
